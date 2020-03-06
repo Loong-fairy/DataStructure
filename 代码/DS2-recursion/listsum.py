@@ -39,24 +39,23 @@
     = 25|(1+24) ↓←————
 """
 
-
 # print(listSum([1, 3, 5, 7, 9]))
 
 
 #
-def toStr(n, base):
-    str1 = '0123456789ABCDEF'
-    pm = ""
-    if n < 0:
-        n = abs(n)
-        pm = "-"
-    if n < base:
-        return str1[n]
-    return pm + (toStr(n // base, base) + str1[n % base])
+# def toStr(n, base):
+#     str1 = '0123456789ABCDEF'
+#     pm = ""
+#     if n < 0:
+#         n = abs(n)
+#         pm = "-"
+#     if n < base:
+#         return str1[n]
+#     return pm + (toStr(n // base, base) + str1[n % base])  # 将递归调用的结果和str1的字符串拼接
 
 
 """
-str1 = '0123456789ABCDEFEDCBA9876543210'
+str1 = '0123456789ABCDEF'
   toStr(100, 10)
   = toStr(100//10, 10) + str1[100%10]
     = toStr(10//10, 10) + str1[10%10]
@@ -65,7 +64,7 @@ str1 = '0123456789ABCDEFEDCBA9876543210'
   = '10' + '0'
 = '100'
 
-str1 = '0123456789ABCDEFEDCBA9876543210'
+str1 = '0123456789ABCDEF'
   toStr(-100, 10)
   = '-' + (toStr(100//10, 10) + str1[100%10])
           = '' + (toStr(10//10, 10) + str1[10%10])
@@ -75,6 +74,37 @@ str1 = '0123456789ABCDEFEDCBA9876543210'
 = '-100'
 """
 
-num = -100
-print(toStr(num, 16))
+num = 100
+# print(toStr(num, 16))
 print("二进制:{}".format(bin(num)), "八进制:{}".format(oct(num)), "十进制:{}".format(hex(num)))
+
+# 栈
+from pythonds.basic.stack import Stack
+
+rStack = Stack()
+
+
+def toStr(n, base):
+    convertString = '0123456789ABCDEF'
+
+    while n > 0:
+        if n < base:
+            rStack.push(convertString[n])
+        else:
+            rStack.push(convertString[n % base])
+        n //= base
+    res = ""
+    while not rStack.isEmpty():
+        res = res + str(rStack.pop())
+    return res
+
+
+print(toStr(1453, 16))
+# 5AD = 5*16^2  10*16^1  13*16^0
+
+"""
+    [0, 0, 1]
+    100    0
+    10     0
+    1      1
+"""
