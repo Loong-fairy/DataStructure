@@ -57,45 +57,49 @@
 """
 
 
-# def binary_search(alist, item):
-#     found = False
-#     first = 0
-#     last = len(alist) - 1
-#     while first <= last and not found:
-#         # 中间
-#         midpoint = (first+last)//2
-#         print(alist[midpoint], midpoint)
-#         if alist[midpoint] == item:
-#             found = True
-#         else:
-#             if item < alist[midpoint]:
-#                 last = midpoint - 1
-#             else:
-#                 first = midpoint + 1
-#     return found
-#
-#
-# search_list = [17, 20, 26, 30, 44, 54, 55, 65, 77, 94]
-# print(binary_search(search_list, 17))
+def binary_search(alist, item):
+    found = False
+    first = 0
+    last = len(alist) - 1
+    while first <= last and not found:
+        # 中间
+        midpoint = (first+last)//2
+        print(alist[midpoint], midpoint, last)
+        if alist[midpoint] == item:
+            found = True
+        else:
+            if item < alist[midpoint]:
+                last = midpoint - 1
+            else:
+                first = midpoint + 1
+    return found
+
+
+search_list = [17, 20, 26, 30, 44, 54, 55, 65, 77, 94]
+print(binary_search(search_list, 94))
 
 # 递归实现二分查找
 
 
-def binary_search(alist, item):
-    print(alist)
-    if len(alist) == 0:
-        return False
-    midpoint = len(alist) // 2
-    if alist[midpoint] == item:
-        return True
-    else:
-        if alist[midpoint] > item:
-            return binary_search(alist[:midpoint], item)
-        else:
-            return binary_search(alist[midpoint+1:], item)
-
-
-search_list = list(range(1, 10000000))
-print(binary_search(search_list, 34556))
+# def binary_search(alist, item):
+#     if len(alist) == 0:
+#         return False
+#     midpoint = len(alist) // 2
+#     if alist[midpoint] == item:
+#         return True
+#     else:
+#         if alist[midpoint] > item:
+#             return binary_search(alist[:midpoint], item)
+#         else:
+#             return binary_search(alist[midpoint+1:], item)
+#
+#
+# search_list = list(range(1, 10000000))
+# print(binary_search(search_list, 34556))
 
 # n/2  n/4  n/8 .... n/2^i   O(logn)
+
+"""
+    Hash查找
+"""
+
