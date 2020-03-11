@@ -130,3 +130,48 @@
 # alist = [54,26,93,17,77,31,44,55,20]
 # shellSort(alist)
 # print(alist)
+
+"""
+归并排序
+"""
+
+
+def merge_sort(arry):
+    if len(arry) > 1:
+        mid = len(arry) // 2
+        left_half = arry[:mid]
+        right_half = arry[mid:]
+
+        merge_sort(left_half)
+        merge_sort(right_half)
+
+        i = 0
+        j = 0
+        k = 0
+        while i < len(left_half)and j < len(right_half):
+            if left_half[i] < right_half[j]:
+                arry[k] = left_half[i]
+                i += 1
+            else:
+                arry[k] = right_half[j]
+                j += 1
+            k += 1
+
+        while i < len(left_half):
+            arry[k] = left_half[i]
+            i += 1
+            k += 1
+
+        while j < len(right_half):
+            arry[k] = right_half[j]
+            j += 1
+            k += 1
+
+
+sortlist = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+merge_sort(sortlist)
+print(sortlist)
+
+"""
+    快速排序
+"""

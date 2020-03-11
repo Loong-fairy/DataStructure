@@ -1,0 +1,433 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>8.递归 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="排序与搜索.html" />
+    
+    
+    <link rel="prev" href="7.基本数据结构总结.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="1.算法与算法分析.html">
+            
+                <a href="1.算法与算法分析.html">
+            
+                    
+                    1. 算法与算法分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="2.LeetCode中级-乱序字符串检查.html">
+            
+                <a href="2.LeetCode中级-乱序字符串检查.html">
+            
+                    
+                    2.LeetCode中级-乱序字符串检查
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="3.python内置操作时间复杂度.html">
+            
+                <a href="3.python内置操作时间复杂度.html">
+            
+                    
+                    3.python内置操作时间复杂度
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="4.基本数据结构一.html">
+            
+                <a href="4.基本数据结构一.html">
+            
+                    
+                    4.基本数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="5.队列.html">
+            
+                <a href="5.队列.html">
+            
+                    
+                    5.队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="6.双端队列.html">
+            
+                <a href="6.双端队列.html">
+            
+                    
+                    6.双端队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="7.基本数据结构总结.html">
+            
+                <a href="7.基本数据结构总结.html">
+            
+                    
+                    7.基本数据结构总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.9" data-path="递归.html">
+            
+                <a href="递归.html">
+            
+                    
+                    8.递归
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="排序与搜索.html">
+            
+                <a href="排序与搜索.html">
+            
+                    
+                    9.排序与搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >8.递归</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x4E00;&#x3001;&#x4EC0;&#x4E48;&#x662F;&#x9012;&#x5F52;">&#x4E00;&#x3001;&#x4EC0;&#x4E48;&#x662F;&#x9012;&#x5F52;?</h2>
+<p>&#x9012;&#x5F52;&#x662F;&#x4E00;&#x79CD;&#x89E3;&#x51B3;&#x95EE;&#x9898;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5C06;&#x95EE;&#x9898;&#x5206;&#x89E3;&#x4E3A;&#x66F4;&#x5C0F;&#x7684;&#x5B50;&#x95EE;&#x9898;&#xFF0C;&#x76F4;&#x5230;&#x5F97;&#x5230;-&#x4E00;&#x4E2A;&#x8DB3;&#x591F;&#x5C0F;&#x7684;&#x95EE;&#x9898;&#x53EF;&#x4EE5;&#x88AB;&#x5F88;&#x7B80;&#x5355;&#x7684;&#x89E3;&#x51B3;&#x3002;</p>
+<p>&#x901A;&#x5E38;&#x9012;&#x5F52;&#x6D89;&#x53CA;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x81EA;&#x8EAB;&#x3002;</p>
+<h2 id="&#x4E8C;&#x3001;&#x6574;&#x6570;&#x5217;&#x8868;&#x7684;&#x548C;">&#x4E8C;&#x3001;&#x6574;&#x6570;&#x5217;&#x8868;&#x7684;&#x548C;</h2>
+<pre><code>def listSum(numList):  # &#x9012;&#x5F52;&#x51FD;&#x6570;
+    if len(numList) == 1:
+        return numList[0]
+    return numList[0] + listSum(numList[1:])
+
+
+listSum2([1, 3, 5, 7, 9])
+= 1 + listSum2([1, 3, 5, 7, 9])
+      = 3 + listSum2([5, 7, 9])
+            = 5 + listSum2([7, 9])
+                  = 7 + listSum2([9])
+                        = 9---&#x8FD9;&#x91CC;&#x662F;&#x6700;&#x6DF1;&#x5904;--&#x6761;&#x4EF6;&#x4E0D;&#x6EE1;&#x8DB3;,&#x6CA1;&#x6709;&#x518D;&#x6B21;&#x8C03;&#x7528;&#x81EA;&#x8EAB; &#x2193;
+                  = 16|(7+9)  &#x2193;&#x2190;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;&#x2014;
+            = 21|(5+16) &#x2193;&#x2190;&#x2014;&#x2014;&#x2014;&#x2014;
+      = 24|(3+21) &#x2193;&#x2190;&#x2014;&#x2014;&#x2014;&#x2014;
+= 25|(1+24) &#x2193;&#x2190;&#x2014;&#x2014;&#x2014;&#x2014;
+</code></pre><h2 id="&#x4E09;&#x3001;&#x9012;&#x5F52;&#x7684;&#x4E09;&#x5927;&#x5B9A;&#x5F8B;">&#x4E09;&#x3001;&#x9012;&#x5F52;&#x7684;&#x4E09;&#x5927;&#x5B9A;&#x5F8B;</h2>
+<ol>
+<li><p>&#x9012;&#x5F52;&#x7B97;&#x6CD5;&#x5FC5;&#x987B;&#x5177;&#x6709;&#x57FA;&#x672C;&#x60C5;&#x51B5;:&#x57FA;&#x672C;&#x60C5;&#x51B5;&#x662F;&#x7B97;&#x6CD5;&#x505C;&#x6B62;&#x9012;&#x5F52;&#x7684;&#x6761;&#x4EF6;&#x3002;</p>
+<p>&#x901A;&#x5E38;&#x662F;&#x8DB3;&#x591F;&#x5C0F;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x6C42;&#x89E3;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x5728;&#x6574;&#x6570;&#x5217;&#x8868;&#x7684;&#x548C;&#x4E2D;&#xFF0C;&#x57FA;&#x672C;&#x60C5;&#x51B5;&#x662F;&#x957F;&#x5EA6;&#x4E3A;1&#x7684;&#x5217;&#x8868;</p>
+</li>
+<li><p>&#x9012;&#x5F52;&#x7B97;&#x6CD5;&#x5FC5;&#x987B;&#x6539;&#x53D8;&#x5176;&#x72B6;&#x6001;&#x5E76;&#x5411;&#x57FA;&#x672C;&#x60C5;&#x51B5;&#x9760;&#x8FD1;</p>
+</li>
+<li><p>&#x9012;&#x5F52;&#x7B97;&#x6CD5;&#x5FC5;&#x987B;&#x4EE5;&#x9012;&#x5F52;&#x65B9;&#x5F0F;&#x8C03;&#x7528;&#x81EA;&#x8EAB;</p>
+</li>
+</ol>
+<h2 id="&#x56DB;&#x3001;&#x7EC3;&#x4E60;">&#x56DB;&#x3001;&#x7EC3;&#x4E60;</h2>
+<ol>
+<li><p>&#x6574;&#x6570;&#x8F6C;&#x6362;&#x6210;&#x4EFB;&#x610F;&#x8FDB;&#x5236;&#x5B57;&#x7B26;&#x4E32;</p>
+<p>769  = 0b1100000001</p>
+<p>&#x200B;        = 0x301</p>
+<p>str1 = &apos;0123456789ABCDEP&apos;   str1[7] + str1[6]+ str1[9]</p>
+</li>
+</ol>
+<p>   769/10  &#x5F97;&#x5230;76,  &#x4F59;9</p>
+<p>   76/10  &#x5F97;&#x5230;7,  &#x4F59;6</p>
+<h2 id="&#x4E94;&#x3001;&#x603B;&#x7ED3;">&#x4E94;&#x3001;&#x603B;&#x7ED3;</h2>
+<ol>
+<li>&#x5F53;&#x5728;Python&#x4E2D;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x65F6;&#x5019;,&#x4F1A;&#x5206;&#x914D;&#x4E00;&#x4E2A;&#x6808;&#x6765;&#x5904;&#x7406;&#x51FD;&#x6570;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;. &#x5F53;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x65F6;, &#x8FD4;&#x56DE;&#x503C;&#x7559;&#x5728;&#x6808;&#x7684;&#x9876;&#x90E8;, &#x4EE5;&#x4F9B;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x8BBF;&#x95EE;</li>
+</ol>
+<h2 id="&#x516D;&#x3001;&#x53EF;&#x89C6;&#x5316;&#x9012;&#x5F52;">&#x516D;&#x3001;&#x53EF;&#x89C6;&#x5316;&#x9012;&#x5F52;</h2>
+<p>&#x63D2;&#x56FE;&#x5DE5;&#x5177;: turtle</p>
+<p>&#x6C49;&#x8BFA;&#x5854;&#x662F;&#x7531;&#x6CD5;&#x56FD;&#x6570;&#x5B66;&#x5BB6;&#x7231;&#x5FB7;&#x534E;&#x5362;&#x5361;&#x65AF;&#x5728;1883&#x5E74;&#x53D1;&#x660E;&#x7684;&#x3002;&#x4ED6;&#x7684;&#x7075;&#x611F;&#x6765;&#x81EA;&#x4E00;&#x4E2A;&#x4F20;&#x8BF4;&#xFF0C;&#x6709;&#x4E00;&#x4E2A;&#x5370;&#x5EA6;&#x6559;&#x5BFA;&#x5E99;&#xFF0C;&#x5C06;&#x8C1C;&#x9898;&#x4EA4;&#x7ED9;&#x5E74;&#x8F7B;&#x7684;&#x7267;&#x5E08;&#x3002;&#x5728;&#x5F00;&#x59CB;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x7267;&#x5E08;&#x4EEC;&#x88AB;&#x7ED9;&#x4E88;&#x4E09;&#x6839;&#x6746;&#x548C;&#x4E00;&#x5806;64&#x4E2A;&#x91D1;&#x789F;&#xFF0C;&#x6BCF;&#x4E2A;&#x76D8;&#x6BD4;&#x5B83;&#x4E0B;&#x9762;&#x4E00;&#x4E2A;&#x5C0F;&#x4E00;&#x70B9;&#x3002;&#x4ED6;&#x4EEC;&#x7684;&#x4EFB;&#x52A1;&#x662F;&#x5C06;&#x6240;&#x6709;64&#x4E2A;&#x76D8;&#x5B50;&#x4ECE;&#x4E09;&#x4E2A;&#x6746;&#x4E2D;&#x4E00;-&#x4E2A;&#x8F6C;&#x79FB;&#x5230;&#x53E6;-&#x4E2A;&#x3002; &#x6709;&#x4E24;&#x4E2A;&#x91CD;&#x8981;&#x7684;&#x7EA6;&#x675F;&#xFF0C;&#x5B83;&#x4EEC;&#x4E00;&#x6B21;&#x53EA;&#x80FD;&#x79FB;&#x52A8;-&#x4E2A;&#x76D8;&#x5B50;&#xFF0C;&#x5E76;&#x4E14;&#x5B83;&#x4EEC;&#x4E0D;&#x80FD;&#x5728;&#x8F83;&#x5C0F;&#x7684;&#x76D8;&#x5B50;&#x9876;&#x90E8;&#x4E0A;&#x653E;&#x7F6E;&#x66F4;&#x5927;&#x7684;&#x76D8;&#x5B50;&#x3002;&#x7267;&#x5E08;&#x65E5;&#x591C;&#x4E0D;&#x505C;&#x6BCF;&#x79D2;&#x949F;&#x79FB;&#x52A8;-&#x5757;&#x76D8;&#x5B50;&#x3002;&#x5F53;&#x4ED6;&#x4EEC;&#x5B8C;&#x6210;&#x5DE5;&#x4F5C;&#x65F6;&#xFF0C;&#x4F20;&#x8BF4;&#xFF0C;&#x5BFA;&#x5E99;&#x4F1A;&#x53D8;&#x6210;&#x7070;&#x5C18;&#xFF0C;&#x4E16;&#x754C;&#x5C06;&#x6D88;&#x5931;&#x3002;</p>
+<p>2^64-1 s</p>
+<p>&#x57FA;&#x672C;&#x60C5;&#x51B5;&#x662F;&#x4EC0;&#x4E48;? .</p>
+<p>&#x4E00;&#x4E2A;&#x76D8;&#x5B50;&#x7684;&#x6746;&#x5C31;&#x662F;&#x57FA;&#x672C;&#x60C5;&#x51B5;</p>
+<p>&#x9075;&#x5FAA;&#x7684;&#x89C4;&#x5219;:&#x8F83;&#x5927;&#x7684;&#x76D8;&#x5B50;&#x8981;&#x4FDD;&#x7559;&#x5728;&#x6746;&#x7684;&#x5E95;&#x90E8;</p>
+<p>A --&gt; C
+            A --&gt; B
+                        C --&gt; B
+A --&gt; C
+                                    B --&gt; A
+                                                B --&gt; C
+A --&gt; C
+            A --&gt; B
+                        C --&gt; B
+                    C --&gt; A
+                                    B --&gt; A
+        C --&gt; B
+A --&gt; C
+            A --&gt; B
+                        C --&gt; B
+A --&gt; C
+                                    B --&gt; A
+                                                B --&gt; C
+A --&gt; C
+                                    B --&gt; A
+                        C --&gt; B
+                    C --&gt; A
+                                    B --&gt; A
+                                                B --&gt; C
+A --&gt; C
+            A --&gt; B
+                        C --&gt; B
+A --&gt; C
+                                    B --&gt; A
+                                                B --&gt; C
+A --&gt; C</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="7.基本数据结构总结.html" class="navigation navigation-prev " aria-label="Previous page: 7.基本数据结构总结">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="排序与搜索.html" class="navigation navigation-next " aria-label="Next page: 9.排序与搜索">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"8.递归","level":"1.9","depth":1,"next":{"title":"9.排序与搜索","level":"1.10","depth":1,"path":"排序与搜索.md","ref":"排序与搜索.md","articles":[]},"previous":{"title":"7.基本数据结构总结","level":"1.8","depth":1,"path":"7.基本数据结构总结.md","ref":"7.基本数据结构总结.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"递归.md","mtime":"2020-03-06T08:14:42.638Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-11T02:22:53.741Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
