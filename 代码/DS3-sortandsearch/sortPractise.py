@@ -148,7 +148,7 @@ def merge_sort(arry):
         i = 0
         j = 0
         k = 0
-        while i < len(left_half)and j < len(right_half):
+        while i < len(left_half) and j < len(right_half):
             if left_half[i] < right_half[j]:
                 arry[k] = left_half[i]
                 i += 1
@@ -175,3 +175,78 @@ print(sortlist)
 """
     快速排序
 """
+
+
+# def quickSort(arr, left=None, right=None):
+#     left = 0 if not isinstance(left, (int, float)) else left
+#     right = len(arr) - 1 if not isinstance(right, (int, float)) else right
+#     if left < right:
+#         partitionIndex = partition(arr, left, right)
+#         quickSort(arr, left, partitionIndex - 1)
+#         quickSort(arr, partitionIndex + 1, right)
+#     return arr
+#
+#
+# def partition(arr, left, right):
+#     pivot = left
+#     index = pivot + 1
+#     i = index
+#     while i <= right:
+#         if arr[i] < arr[pivot]:
+#             swap(arr, i, index)
+#             index += 1
+#         i += 1
+#     swap(arr, pivot, index - 1)
+#     return index - 1
+#
+#
+# def swap(arr, i, j):
+#     arr[i], arr[j] = arr[j], arr[i]
+
+
+def quickSort(alist):
+    quickSortHelper(alist,0,len(alist)-1)
+
+# 递归调用对数列进行分区
+def quickSortHelper(alist,first,last):
+    if first<last:
+        splitpoint = partition(alist,first,last)
+
+        quickSortHelper(alist,first,splitpoint-1)
+        quickSortHelper(alist,splitpoint+1,last)
+
+# 选出基准点
+def partition(alist,first,last):
+    # 定义基准点
+    pivotvalue = alist[first]
+
+    leftMark = first + 1
+    rightMark = last
+
+    # 停止比对
+    done = False
+    while not done:
+        while leftMark <= rightMark and alist[leftMark] <= pivotvalue:
+            leftMark = leftMark + 1
+
+        while alist[rightMark] >= pivotvalue and rightMark >= leftMark:
+            rightMark = rightMark - 1
+
+        if rightMark < leftMark:
+            done = True
+        else:
+            temp = alist[leftMark]
+            alist[leftMark] = alist[rightMark]
+            alist[rightMark] = temp
+
+    temp = alist[first]
+    alist[first] = alist[rightMark]
+    alist[rightMark] = temp
+
+    return rightMark
+
+
+alist =  [54,26,93,17,77,31,44,55,20]
+quickSort(alist)
+print(alist)
+
