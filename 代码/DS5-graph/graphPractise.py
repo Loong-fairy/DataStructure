@@ -33,6 +33,7 @@ class Graph:
         self.vertList = {}
         self.numVertices = 0
 
+    # 添加顶点
     def addVertex(self, key):
         self.numVertices += 1
         newVertex = Vertex(key)
@@ -45,6 +46,9 @@ class Graph:
         else:
             return None
 
+    def __contains__(self, item):
+        return item in self.vertList
+
     def addEdge(self, fromVert, toVert, weight=0):
         if fromVert not in self.vertList:
             nv = self.addVertex(fromVert)
@@ -56,8 +60,28 @@ class Graph:
     def getVertices(self):
         return self.vertList.keys()
 
+    def __iter__(self):
+        return iter(self.vertList.values())
 
 
+g = Graph()
+for i in range(6):
+    g.addVertex(i)
+
+
+g.addEdge(0, 1, 5)
+g.addEdge(0, 5, 2)
+g.addEdge(1, 2, 4)
+g.addEdge(2, 3, 9)
+g.addEdge(3, 4, 7)
+g.addEdge(3, 5, 3)
+g.addEdge(4, 0, 1)
+g.addEdge(5, 2, 1)
+g.addEdge(5, 4, 8)
+
+for v in g:
+    for w in v.getConnections():
+        print("( %s, %s )" % (v.getId(), w.getId()))
 
 
 
